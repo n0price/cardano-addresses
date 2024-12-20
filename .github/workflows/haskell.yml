@@ -191,3 +191,9 @@ jobs:
       with:
         name: ${{ matrix.os }}-exe
         path: ${{ steps.cabal-store.outputs.cabal-store }}
+        
+    - name: Package build binaries
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-binaries-${{ matrix.os }}
+        path: dist-newstyle/build/*/*/cardano-addresses-cli/build/cardano-addresses-cli/cardano-addresses-cli
