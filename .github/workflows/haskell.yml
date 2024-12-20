@@ -196,4 +196,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: build-binaries-${{ matrix.os }}
-        path: dist-newstyle/build/*/*/cardano-addresses-cli/build/cardano-addresses-cli/cardano-addresses-cli
+        path: dist-newstyle/build/*/*/cardano-addresses-cli*/x/*/build/*/cardano-addresses-cli*
