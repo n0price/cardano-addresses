@@ -1,6 +1,12 @@
 name: Haskell CI using Cabal
 
 on:
+  workflow_dispatch:
+    inputs:
+      tests:
+        description: 'All'
+        required: false
+        default: 'default'
   push:
     branches: [ "master" ]
   pull_request:
