@@ -197,4 +197,5 @@ jobs:
       with:
         name: build-binaries-${{ matrix.os }}
         path: dist-newstyle/build/*/*/cardano-addresses-cli*/build/cardano-addresses-cli/cardano-addresses-cli
-
+    - name: Debug build directory
+      run: ls -R dist-newstyle/build/
