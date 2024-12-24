@@ -192,10 +192,11 @@ jobs:
         name: ${{ matrix.os }}-exe
         path: ${{ steps.cabal-store.outputs.cabal-store }}
         
-    - name: Package build binaries
+    - name: Upload cardano-address binary
       uses: actions/upload-artifact@v3
       with:
-        name: build-binaries-${{ matrix.os }}
-        path: dist-newstyle/build/*/*/cardano-addresses-cli*/build/cardano-addresses-cli/cardano-addresses-cli
+        name: cardano-address-binary-${{ matrix.os }}
+        path: dist-newstyle/build/x86_64-linux/ghc-*/cardano-addresses-cli-3.12.0/x/cardano-address/build/cardano-address/cardano-address
+
     - name: Debug build directory
-      run: ls -R dist-newstyle/build/
+      run: ls -l dist-newstyle/build/x86_64-linux/ghc-9.6.5/cardano-addresses-cli-3.12.0/x/cardano-address/build/cardano-address
