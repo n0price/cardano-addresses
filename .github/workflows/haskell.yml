@@ -193,10 +193,17 @@ jobs:
         path: ${{ steps.cabal-store.outputs.cabal-store }}
         
     - name: Upload cardano-address binary
-      uses: actions/upload-artifact@v3
+      if: runner.os == 'Linux' || runner.os == 'macOS'
+      uses: actions/upload-artifact@v4
       with:
         name: cardano-address-binary-${{ matrix.os }}
         path: dist-newstyle/build/x86_64-linux/ghc-*/cardano-addresses-cli-3.12.0/x/cardano-address/build/cardano-address/cardano-address
-
-    - name: Debug build directory
-      run: ls -l dist-newstyle/build/x86_64-linux/ghc-9.6.5/cardano-addresses-cli-3.12.0/x/cardano-address/build/cardano-address
+        if-no-files-found: error
+    
+    - name: Upload cardano-address binary (Windows)
+      if: runner.os == 'Windows'
+      uses: actions/upload-artifact@v4
+      with:
+        name: cardano-address-binary-${{ matrix.os }}
+        path: dist-newstyle/build/x86_64-windows/ghc-*/cardano-addresses-cli-3.12.0/x/cardano-address/build/cardano-address/cardano-address.exe
+        if-no-files-found: error
