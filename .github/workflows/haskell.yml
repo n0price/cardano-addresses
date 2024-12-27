@@ -197,7 +197,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: ${{ matrix.os }}-binary-ghc-${{ matrix.ghc }}-${{ github.run_number }}
-        path: dist-newstyle/build/x86_64-linux/ghc-*/cardano-addresses-cli-3.12.0/x/cardano-address/build/cardano-address/cardano-address
+        path: dist-newstyle/build/x86_64-linux/ghc-*/cardano-addresses-cli-3.12.0/x/cardano-address/build/cardano-address/cardano-address*
         if-no-files-found: error
     
     - name: Upload cardano-address binary (Windows)
